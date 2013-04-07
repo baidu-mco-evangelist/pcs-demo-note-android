@@ -111,7 +111,7 @@ public class BaiduPCSAction {
 		  
 		    				if(uploadResponse.error_code == 0){
 		    					
-		    					Toast.makeText(context,"ÉÏ´«³É¹¦", Toast.LENGTH_SHORT).show();
+		    					Toast.makeText(context,"ï¿½Ï´ï¿½ï¿½É¹ï¿½", Toast.LENGTH_SHORT).show();
 		    					
 		    					//Delete temp file
 		    					File file = new File(PCSDemoInfo.sourceFile);
@@ -122,7 +122,7 @@ public class BaiduPCSAction {
 		    					
 		    				}else{
 		    					
-		    					Toast.makeText(context,"´íÎó´úÂë£º"+uploadResponse.error_code, Toast.LENGTH_SHORT).show(); 
+		    					Toast.makeText(context,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£º"+uploadResponse.error_code, Toast.LENGTH_SHORT).show(); 
 		    				}
 		    				
 		    			}
@@ -160,7 +160,7 @@ public class BaiduPCSAction {
 		    			
 		    				ArrayList<HashMap<String, String>> list =new ArrayList<HashMap<String,String>>();   
 		    						    				
-
+                                             if( ! listResponse.list != NULL){ 
 		    				if( ! listResponse.list.isEmpty()){
 		    					   			    	            
 			    	            for(Iterator<PCSFileInfoResponse> i = listResponse.list.iterator(); i.hasNext();){
@@ -191,9 +191,9 @@ public class BaiduPCSAction {
 			    	        	
 			    	        	//Clear content list
 		    					list.clear();
-		    					Toast.makeText(context, "ÄúµÄÎÄ¼þ¼ÐÎª¿Õ£¡", Toast.LENGTH_SHORT).show();		    					
+		    					Toast.makeText(context, "ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½", Toast.LENGTH_SHORT).show();		    					
 		    				}    
-		    				
+                                        }	
 			    	         SimpleAdapter listAdapter =new SimpleAdapter(context, list, R.layout.content, new String[]{"file_name","time"}, new int[]{R.id.file_name,R.id.time});   
 			    	        
 			    	         //Set listview to display content
@@ -260,11 +260,11 @@ public class BaiduPCSAction {
 			    				}catch (Exception e) {
 									// TODO: handle exception
 			    					
-			    					Toast.makeText(context, "¶ÁÈ¡ÎÄ¼þÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+			    					Toast.makeText(context, "ï¿½ï¿½È¡ï¿½Ä¼ï¿½Ê§ï¿½Ü£ï¿½", Toast.LENGTH_SHORT).show();
 								}
 		    				}else{
 		    					
-		    					Toast.makeText(context, "ÏÂÔØÊ§°Ü£¡", Toast.LENGTH_SHORT).show();
+		    					Toast.makeText(context, "ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½", Toast.LENGTH_SHORT).show();
 		    				}	
 		    			}
 		    		});	
@@ -301,7 +301,7 @@ public class BaiduPCSAction {
 		    							    							
 		    					if(PCSDemoInfo.statu == 2){
 		    						//First remove the clouds files, and then refresh content list
-		    						Toast.makeText(context, "É¾³ý³É¹¦£¡", Toast.LENGTH_SHORT).show();
+		    						Toast.makeText(context, "É¾ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
 		    						
 		    						list(context);
 		    						
@@ -313,7 +313,7 @@ public class BaiduPCSAction {
 		    						} 						
 		    					}		    					
 		    				}else{
-		    					Toast.makeText(context, "É¾³ýÊ§°Ü£¡"+deleteResponse.message, Toast.LENGTH_SHORT).show();
+		    					Toast.makeText(context, "É¾ï¿½ï¿½Ê§ï¿½Ü£ï¿½"+deleteResponse.message, Toast.LENGTH_SHORT).show();
 		    				}
 		    			}
 		    		});	
@@ -373,20 +373,20 @@ public class BaiduPCSAction {
     public void  exit(final Context context){
     	
         AlertDialog.Builder exitAlert = new AlertDialog.Builder(context);
-        exitAlert.setIcon(R.drawable.alert_dark).setTitle("ÌáÊ¾...").setMessage("ÄãÈ·¶¨ÒªÀë¿ª¿Í»§¶ËÂð£¿");
-        exitAlert.setPositiveButton("È·¶¨", new DialogInterface.OnClickListener() {
+        exitAlert.setIcon(R.drawable.alert_dark).setTitle("ï¿½ï¿½Ê¾...").setMessage("ï¿½ï¿½È·ï¿½ï¿½Òªï¿½ë¿ªï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+        exitAlert.setPositiveButton("È·ï¿½ï¿½", new DialogInterface.OnClickListener() {
                
                public void onClick(DialogInterface dialog, int which) {
                     	PCSDemoInfo.flag= 1;
                         Intent intent = new Intent(); 
-                        intent.setClass(context, PCSDemoNoteActivity.class);//Ìø×ªµ½login½çÃæ£¬¸ù¾Ý²ÎÊýÍË³ö
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  //×¢Òâ±¾ÐÐµÄFLAGÉèÖÃ,clearËùÓÐActivity¼ÇÂ¼
-                        context.startActivity(intent);//×¢Òâ°¡£¬ÔÚÌø×ªµÄÒ³ÃæÖÐ½øÐÐ¼ì²âºÍÍË³ö
+                        intent.setClass(context, PCSDemoNoteActivity.class);//ï¿½ï¿½×ªï¿½ï¿½loginï¿½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½ï¿½Ë³ï¿½
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  //×¢ï¿½â±¾ï¿½Ðµï¿½FLAGï¿½ï¿½ï¿½ï¿½,clearï¿½ï¿½ï¿½ï¿½Activityï¿½ï¿½Â¼
+                        context.startActivity(intent);//×¢ï¿½â°¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ò³ï¿½ï¿½ï¿½Ð½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½
 
                     }
                 });
         
-        exitAlert.setNegativeButton("È¡Ïû", new DialogInterface.OnClickListener() {
+        exitAlert.setNegativeButton("È¡ï¿½ï¿½", new DialogInterface.OnClickListener() {
              
                 public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
